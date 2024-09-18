@@ -27,7 +27,7 @@ public class MulticastServerSenderThread extends Thread {
     public void run() {
 
         ArrayList<Integer> balls = new ArrayList<Integer>();
-        for(int i = 1; i <= 30; i++) {
+        for(int i = 1; i <= 90; i++) {
             balls.add(i);
         }
 
