@@ -26,7 +26,7 @@ public class MulticastServerSenderThread extends Thread {
     @Override
     public void run() {
 
-        ArrayList<Integer> balls = new ArrayList<Integer>();
+        ArrayList<Integer> balls = new ArrayList<>();
         for(int i = 1; i <= 90; i++) {
             balls.add(i);
         }
@@ -47,9 +47,7 @@ public class MulticastServerSenderThread extends Thread {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length, group, port);
                 socket.send(packet);
 
-                Platform.runLater(() -> {
-                    windowController.update(message);
-                });
+                Platform.runLater(() -> windowController.update(message));
 
                 Thread.sleep(1000);
             } catch (IOException e) {
