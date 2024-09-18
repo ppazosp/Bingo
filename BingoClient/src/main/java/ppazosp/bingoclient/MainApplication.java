@@ -10,12 +10,14 @@ import java.io.IOException;
 public class MainApplication extends Application {
 
     private boolean bingo = false;
+    private boolean winner = false;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("mainView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), -1, -1);
         MainViewController mainViewController = fxmlLoader.getController();
+        mainViewController.setApplication(this);
         stage.setTitle("Bingo Card");
         stage.setResizable(false);
         stage.setScene(scene);
@@ -36,5 +38,13 @@ public class MainApplication extends Application {
 
     public void bingo() {
         bingo = true;
+    }
+
+    public boolean isWinner() {
+        return winner;
+    }
+
+    public void winner() {
+        winner = true;
     }
 }

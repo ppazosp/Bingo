@@ -14,18 +14,23 @@ import java.util.*;
 
 public class MainViewController {
 
+    MainApplication application;
+
     @FXML
     private GridPane ballsGrid;
 
     @FXML
     private Label currentBall;
 
+    public void setApplication(MainApplication application) {
+        this.application = application;
+    }
 
     @FXML
     protected void initialize() {
 
         ArrayList<Integer> balls = new ArrayList<Integer>();
-        for(int i = 1; i <= 90; i++) {
+        for(int i = 1; i <= 30; i++) {
             balls.add(i);
         }
 
@@ -95,5 +100,11 @@ public class MainViewController {
         }
 
         return true;
+    }
+
+    public void bingo()
+    {
+        if (application.isWinner()) currentBall.setText("bingo");
+        else currentBall.setText("you lost");
     }
 }

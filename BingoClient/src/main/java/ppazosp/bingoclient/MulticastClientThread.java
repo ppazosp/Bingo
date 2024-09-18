@@ -36,14 +36,22 @@ public class MulticastClientThread extends Thread{
                 socket.receive(packet);
 
                 String message = new String(packet.getData(), 0, packet.getLength());
-                System.out.println("Ball: " + message);
 
-                Platform.runLater(() -> {
-                    if (windowController.update(message)) {
-                        bingo();
-                    }
-                });
+                if(message.equals("bingo")) application.bingo();
+                else {
+                    Platform.runLater(() -> {
+                        if(windowController.update(message)){
+                            bingo();
+                            return;
+                        };
+                    });
+                }
             }
+
+            Platform.runLater(() -> {
+                windowController.bingo();
+            });
+
 
         } catch (IOException e) {
             System.out.println("Error receiving ball: " + e.getMessage());
@@ -52,7 +60,7 @@ public class MulticastClientThread extends Thread{
 
     public void bingo()
     {
-        application.bingo();
+        application.winner();
 
         String message = "bingo";
 

@@ -38,11 +38,11 @@ public class MulticastServerReceiverThread extends Thread {
                 String message = new String(packet.getData(), 0, packet.getLength());
                 if (message.equals("bingo"))
                 {
-                    Platform.runLater(() -> {
-                        windowController.bingo(message);
-                    });
-
                     application.bingo();
+
+                    Platform.runLater(() -> {
+                        windowController.bingo();
+                    });
                 }
 
             } catch (IOException e) {

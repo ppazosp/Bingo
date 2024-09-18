@@ -11,8 +11,8 @@ public class MainViewController {
         ballLabel.setText(ballVal);
     }
 
-    public void bingo(String mss)
+    public void bingo()
     {
-        ballLabel.setText(mss);
+        ballLabel.setText("bingo");
     }
 }
