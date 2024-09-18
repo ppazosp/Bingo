@@ -17,7 +17,7 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), -1, -1);
         MainViewController mainViewController = fxmlLoader.getController();
         stage.setTitle("Bingo Card");
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
